@@ -5,8 +5,8 @@ import { useContent } from '~/hooks/useContent';
 import ContentGrid from '~/components/content-grid';
 import Search from '~/components/Search';
 
-const GamesPage: React.FC = () => {
-    const { items, searchItems, isLoading } = useContent({ category: 'games' });
+const AppsPage: React.FC = () => {
+    const { items, searchItems, isLoading } = useContent({ category: 'apps' });
     const [searchApplied, setSearchApplied] = useState(false);
   
     const handleSearch = (term: string) => {
@@ -17,8 +17,8 @@ const GamesPage: React.FC = () => {
     return (
       <div>
         <FadeIn>
-            <h1 className="font-header text-center text-4xl font-bold text-black dark:text-white mb-2">Games</h1>
-            <p className="text-center text-black dark:text-white mb-6">Explore our collection of the best games.</p>
+            <h1 className="font-header text-center text-4xl font-bold text-black dark:text-white mb-2">Apps</h1>
+            <p className="text-center text-black dark:text-white mb-6">Explore our collection of the best apps.</p>
             <Search onSearch={handleSearch} placeholder="Search games..." />
         </FadeIn>
         {isLoading ? (
@@ -29,8 +29,8 @@ const GamesPage: React.FC = () => {
             <SlideInBottom>
                 {searchApplied && items.length === 0 ? (
                     <div className="text-center py-20">
-                        <h3 className="text-xl font-medium text-black dark:text-white">No games found matching your search.</h3>
-                        <p className="text-black dark:text-white mt-2">Try a different search term or browse all games.</p>
+                        <h3 className="text-xl font-medium text-black dark:text-white">No apps found matching your search.</h3>
+                        <p className="text-black dark:text-white mt-2">Try a different search term or browse all apps.</p>
                     </div>
                 ) : (
                 <ContentGrid items={items} />
@@ -41,4 +41,4 @@ const GamesPage: React.FC = () => {
     );
   };
   
-  export default GamesPage;
+  export default AppsPage;
